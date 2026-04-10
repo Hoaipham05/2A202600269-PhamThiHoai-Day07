@@ -110,8 +110,8 @@ Bộ dữ liệu của nhóm chủ yếu là tài liệu hướng dẫn và quy 
 | Người thử | Strategy | Quan sát retrieval | Điểm mạnh | Điểm yếu |
 |----------|----------|--------------------|-----------|----------|
 | Tôi | RecursiveChunker | Trả đúng 5/5 benchmark queries, chunk top-1 đều rơi vào đúng tài liệu | Linh hoạt theo cấu trúc tài liệu, tốt với policy và hướng dẫn dài | Nếu separator quá mạnh có thể làm chunk hơi ngắn |
-| Thành viên dùng SentenceChunker | SentenceChunker | Kết quả ổn định với các câu hỏi FAQ, chunk khá mạch lạc | Giữ nguyên ý tốt, dễ grounding | Có thể sinh chunk dài ở các đoạn nhiều câu |
-| Thành viên dùng FixedSizeChunker | FixedSizeChunker | Truy vấn đơn giản khá ổn, nhưng kém hơn khi câu hỏi cần nguyên ý | Chunk đều, dễ kiểm soát độ dài | Dễ cắt giữa câu hoặc giữa mục |
+| Hà Hưng Phước | SentenceChunker | Kết quả ổn định với các câu hỏi FAQ, chunk khá mạch lạc | Giữ nguyên ý tốt, dễ grounding | Có thể sinh chunk dài ở các đoạn nhiều câu |
+| Nguyễn Minh Thành | FixedSizeChunker | Truy vấn đơn giản khá ổn, nhưng kém hơn khi câu hỏi cần nguyên ý | Chunk đều, dễ kiểm soát độ dài | Dễ cắt giữa câu hoặc giữa mục |
 
 **Strategy nào tốt nhất cho domain này? Tại sao?**  
 Với bộ dữ liệu của nhóm, RecursiveChunker cho kết quả tốt nhất trong lần benchmark này vì tài liệu có cấu trúc theo mục, quy định và hướng dẫn. Strategy này giữ được ranh giới tự nhiên của đoạn, nên khi truy vấn các câu hỏi như học bổng, KTX, thư viện hay khóa luận, chunk top-1 đều bám sát đúng nguồn. SentenceChunker vẫn là lựa chọn cân bằng, nhưng trong domain này RecursiveChunker phù hợp hơn nhờ tận dụng được cấu trúc văn bản.
